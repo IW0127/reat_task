@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Movie from './movie/Movie';
+import Movie from './components/movie/Movie';
 import NaveBar from './NaveBar';
 import SideBar from './SideBar';
 

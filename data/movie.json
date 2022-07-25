@@ -2,16 +2,28 @@
   "Ticket": [
     {
       "id": 1,
+      "day": "00",
+      "hours": "00",
+      "minutes": "00",
+      "seconde": "00",
       "time": 0,
       "error": 0
     },
     {
-      "id": 1,
+      "id": 2,
+      "day": "00",
+      "hours": "00",
+      "minutes": "00",
+      "seconde": "00",
       "time": 0,
       "error": 0
     },
     {
-      "id": 1,
+      "id": 3,
+      "day": "00",
+      "hours": "00",
+      "minutes": "00",
+      "seconde": "00",
       "time": 0,
       "error": 0
     }

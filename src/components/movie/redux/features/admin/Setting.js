@@ -1,7 +1,26 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import secondCoveter from './secondCoveter';
+import { selectMovieTicketIds, useGetTimeQuery } from './settingSlice';
 
 const Setting = () => {
+  const [optionId, setOptionId] = useState(1);
+
+  const movieTicketIds = useSelector(selectMovieTicketIds);
+
+  const { day, hour, minute, second } = secondCoveter(optionId);
+  console.log(day);
+
+  const onChangeTicketOption = (e) => {
+    setOptionId(Number(e.target.value));
+  };
+
+  const ticketOption = movieTicketIds.map((ticketId) => (
+    <option value={ticketId} key={ticketId}>
+      {ticketId}
+    </option>
+  ));
+
   const options = [
     '',
     'Hide Ticket',
@@ -10,6 +29,7 @@ const Setting = () => {
     'Timer end then restart timer',
     'Remove discount',
   ];
+
   return (
     <div className='container d-flex align-items-center flex-column'>
       <form className='w-50'>
@@ -18,13 +38,12 @@ const Setting = () => {
             Offer Numbers
           </label>
           <select
-            class='form-select'
+            className='form-select'
             id='selectOption'
             aria-label='Default select example'
+            onChange={onChangeTicketOption}
           >
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
+            {ticketOption}
           </select>
         </div>
         <div className='mb-3'>
@@ -79,7 +98,7 @@ const Setting = () => {
             Set Error
           </label>
           <select
-            class='form-select'
+            className='form-select'
             id='selectOption'
             aria-label='Default select example'
           >
