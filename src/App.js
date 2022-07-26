@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import img from './assets/images/Ikbal 3.png';
 import Movie from './components/movie/Movie';
 import NaveBar from './NaveBar';
 import SideBar from './SideBar';
@@ -9,7 +10,15 @@ function App() {
     <Routes>
       <Route path='/' element={<NaveBar />}>
         <Route path='/' element={<SideBar />}>
-          <Route index element={<h1 className='text-center'>Hello world</h1>} />
+          <Route
+            index
+            element={
+              <div className='text-center my-5'>
+                <h1 className='text-center'>Hello world</h1>
+                <img src={img} width='500' alt='' />
+              </div>
+            }
+          />
           <Route path='movie-ticket/*' element={<Movie />} />
 
           <Route path='*' element={<Navigate to='/' replace />} />
