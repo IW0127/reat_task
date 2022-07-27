@@ -14,7 +14,7 @@ export const movieTicketApiSlice = apiSlice.injectEndpoints({
       },
       providesTags: (result, error, arg) => [
         { type: 'movies', id: 'LIST' },
-        ...result.ids.map((id) => ({ type: 'movies', id })),
+        ...result?.ids?.map((id) => ({ type: 'movies', id })),
       ],
     }),
     updateTime: builder.mutation({
@@ -27,24 +27,10 @@ export const movieTicketApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: (result, error, arg) => [{ type: 'movies', id: arg.id }],
     }),
-    updateAllTime: builder.mutation({
-      query: (initialTime) => ({
-        url: `/Ticket`,
-        method: 'PUT',
-        body: {
-          ...initialTime,
-        },
-      }),
-      invalidatesTags: (result, error, arg) => [{ type: 'movies', id: arg.id }],
-    }),
   }),
 });
 
-export const {
-  useGetTimeQuery,
-  useUpdateTimeMutation,
-  useUpdateAllTimeMutation,
-} = movieTicketApiSlice;
+export const { useGetTimeQuery, useUpdateTimeMutation } = movieTicketApiSlice;
 
 export const selectMovieTicketResult =
   movieTicketApiSlice.endpoints.getTime.select();

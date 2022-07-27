@@ -25,7 +25,7 @@ const Setting = () => {
 
   const movieTicketId = useSelector((state) =>
     selectMovieTicketById(state, optionId)
-  );
+  ) ?? [{}];
 
   const [updateTime, { isLoading }] = useUpdateTimeMutation();
 
