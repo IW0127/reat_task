@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import img from './assets/images/Ikbal 3.png';
 import Movie from './components/movie/Movie';
+import ViewMore from './components/view_more/ViewMore';
 import NaveBar from './NaveBar';
 import SideBar from './SideBar';
 
@@ -20,7 +21,7 @@ function App() {
             }
           />
           <Route path='movie-ticket/*' element={<Movie />} />
-
+          <Route path='view-more' element={<ViewMore />} />
           <Route path='*' element={<Navigate to='/' replace />} />
         </Route>
       </Route>
