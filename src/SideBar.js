@@ -5,7 +5,10 @@ const SideBar = () => {
   const sidebarLinks = [
     { title: 'Home', to: '/' },
     { title: 'Movie ticket', to: '/movie-ticket/home' },
-    { title: 'view more', to: '/view-more' },
+    { title: 'View more', to: '/view-more' },
+    { title: 'Count', to: '/count' },
+    { title: 'Todo', to: '/todoList' },
+    { title: 'Yup Lib', to: '/yup' },
   ];
   return (
     <>
