@@ -30,8 +30,11 @@ const TodoList = () => {
     const id = Number(e.target.dataset.id);
     const updateTodo = [];
     addTodo.map((edit, key) => {
-      if (id !== key) updateTodo.push(edit);
-      else updateTodo.push(todo);
+      if (id !== key) {
+        updateTodo.push(edit);
+      } else {
+        updateTodo.push(todo);
+      }
     });
     setAddTodo([...updateTodo]);
     setTodo('');

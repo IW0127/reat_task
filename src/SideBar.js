@@ -9,6 +9,7 @@ const SideBar = () => {
     { title: 'Count', to: '/count' },
     { title: 'Todo', to: '/todoList' },
     { title: 'Yup Lib', to: '/yup' },
+    // { title: 'GST calculator', to: 'GST' },
   ];
   return (
     <>

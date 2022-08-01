@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ViewMore from '../view_more/ViewMore';
 
 const CountLoop = () => {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ const CountLoop = () => {
       <div style={{ overflowWrap: 'break-word', wordWrap: 'break-word' }}>
         {number.join()}
       </div>
+      <ViewMore />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const ViewMore = () => {
   // view more values
-  const viewMore = [1, 2, 6, 8, 7, 9];
+  const viewMoreData = [1, 3, 5, 6, 8, 10, 12, 15, 16];
 
   //count view button
   const [viewCount, setViewCount] = useState(0);
@@ -14,7 +14,7 @@ const ViewMore = () => {
   };
 
   const decrement = () => {
-    if (search > 0) setSearch((prev) => prev - 1);
+    search > 0 && setSearch((prev) => prev - 1);
   };
 
   const changeOnSearch = (e) => {
@@ -27,7 +27,8 @@ const ViewMore = () => {
   };
 
   useEffect(() => {
-    const index = viewMore.indexOf(search);
+    const index = viewMoreData.findIndex((find) => find >= search);
+
     if (index >= 0) {
       setViewCount(index + 2);
       setViewNumber(index);
@@ -68,33 +69,38 @@ const ViewMore = () => {
           <i className='fa-solid fa-plus'></i>
         </button>
       </div>
-      <div className='my-3 p-3 rounded-8 w-25 bg-primary bg-opacity-25'>
-        {viewMore.map((num, id) => {
-          if (id < viewCount && viewNumber <= id) {
-            return (
-              <strong
-                key={id}
-                onClick={clickNumber}
-                data-id={num}
-                className='text-dark'
+      {viewMoreData.map(
+        (box, key) =>
+          viewMoreData[(viewMoreData.length - 1) % 2] === box && (
+            <div className='my-3 p-3 rounded-8 w-25 bg-primary bg-opacity-25'>
+              {viewMoreData.map(
+                (num, id) =>
+                  id < viewCount &&
+                  viewNumber <= id && (
+                    <strong
+                      key={id}
+                      onClick={clickNumber}
+                      data-id={num}
+                      className='text-dark'
+                    >
+                      {num}
+                      <br />
+                    </strong>
+                  )
+              )}
+              <button
+                className='btn btn-primary my-1'
+                onClick={onClickViewMore}
+                disabled={
+                  viewCount === viewMoreData.length ||
+                  search >= viewMoreData[viewMoreData.length - 1]
+                }
               >
-                {num}
-                <br />
-              </strong>
-            );
-          }
-        })}
-        <button
-          className='btn btn-primary my-1'
-          onClick={onClickViewMore}
-          disabled={
-            viewCount === viewMore.length ||
-            search >= viewMore[viewMore.length - 1]
-          }
-        >
-          View More
-        </button>
-      </div>
+                View More
+              </button>
+            </div>
+          )
+      )}
     </div>
   );
 };
