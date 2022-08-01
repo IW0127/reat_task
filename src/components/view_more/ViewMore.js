@@ -1,14 +1,66 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useMemo, useState } from 'react';
+import ViewMoreBox from './ViewMoreBox';
 
 const ViewMore = () => {
   // view more values
-  const viewMoreData = [1, 3, 5, 6, 8, 10, 12, 15, 16];
+  const viewMoreData = [1, 3, 5, 6, 8, 10, 12, 15, 16, 18, 20, 22, 24, 26];
 
-  //count view button
-  const [viewCount, setViewCount] = useState(0);
+  /* count view button */
+  const [viewCount, setViewCount] = useState({});
 
-  const [search, setSearch] = useState(null);
-  let [viewNumber, setViewNumber] = useState(0);
+  /* Search input box  */
+  const [search, setSearch] = useState(0);
+
+  /* number onclick */
+  const [viewNumber, setViewNumber] = useState({});
+
+  /* split array */
+  const partViewMore = () => {
+    const chunkSize = Math.floor(viewMoreData.length / 2);
+    const arr = [];
+    const groups = viewMoreData
+      .map((e, i) => {
+        return (
+          i % chunkSize === 0 &&
+          arr.push(0) &&
+          viewMoreData.slice(i, i + chunkSize)
+        );
+      })
+      .filter((e) => e);
+    // setViewCount({ ...arr });
+    return groups;
+  };
+
+  /* View More Button */
+  const onClickViewMore = (e) => {
+    const viewBtnId = Number(e.target.dataset.id);
+    setViewCount({ ...viewCount, [viewBtnId]: viewCount[viewBtnId] + 2 });
+  };
+
+  /* Onclick number in view more box */
+  const clickNumber = (e) => {
+    const numId = Number(e.target.dataset.id);
+    setSearch(numId);
+  };
+
+  /* Input box search */
+  useMemo(() => {
+    let count = {};
+    let viewNum = {};
+    partViewMore().map((value, key) => {
+      const index = value.findIndex((find) => find >= search);
+      if (index >= 0) {
+        count = { ...count, [key]: index + 2 };
+        viewNum = { ...viewNum, [key]: index };
+      } else {
+        count = { ...count, [key]: 0 };
+        viewNum = { ...viewNum, [key]: -1 };
+      }
+    });
+    setViewCount({ ...viewCount, ...count });
+    setViewNumber({ ...viewNumber, ...viewNum });
+  }, [search]);
+
   const increment = () => {
     setSearch((prev) => prev + 1);
   };
@@ -20,26 +72,6 @@ const ViewMore = () => {
   const changeOnSearch = (e) => {
     const searchValue = Number(e.target.value);
     searchValue ? setSearch(searchValue) : setSearch(0);
-  };
-  const clickNumber = (e) => {
-    const numId = Number(e.target.dataset.id);
-    setSearch(numId);
-  };
-
-  useEffect(() => {
-    const index = viewMoreData.findIndex((find) => find >= search);
-
-    if (index >= 0) {
-      setViewCount(index + 2);
-      setViewNumber(index);
-    } else {
-      setViewCount(null);
-      setViewNumber(0);
-    }
-  }, [search]);
-
-  const onClickViewMore = () => {
-    setViewCount((prev) => prev + 2);
   };
 
   return (
@@ -69,38 +101,18 @@ const ViewMore = () => {
           <i className='fa-solid fa-plus'></i>
         </button>
       </div>
-      {viewMoreData.map(
-        (box, key) =>
-          viewMoreData[(viewMoreData.length - 1) % 2] === box && (
-            <div className='my-3 p-3 rounded-8 w-25 bg-primary bg-opacity-25'>
-              {viewMoreData.map(
-                (num, id) =>
-                  id < viewCount &&
-                  viewNumber <= id && (
-                    <strong
-                      key={id}
-                      onClick={clickNumber}
-                      data-id={num}
-                      className='text-dark'
-                    >
-                      {num}
-                      <br />
-                    </strong>
-                  )
-              )}
-              <button
-                className='btn btn-primary my-1'
-                onClick={onClickViewMore}
-                disabled={
-                  viewCount === viewMoreData.length ||
-                  search >= viewMoreData[viewMoreData.length - 1]
-                }
-              >
-                View More
-              </button>
-            </div>
-          )
-      )}
+      {partViewMore().map((num, key) => (
+        <ViewMoreBox
+          key={key}
+          num={num}
+          numId={key}
+          viewCount={viewCount}
+          search={search}
+          onClickViewMore={onClickViewMore}
+          clickNumber={clickNumber}
+          viewNumber={viewNumber}
+        />
+      ))}
     </div>
   );
 };
