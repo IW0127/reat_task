@@ -1,8 +1,8 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-const FormikProps = () => {
+const FieldFormik = () => {
   return (
     <div className='container d-flex justify-content-center'>
       <Formik
@@ -33,18 +33,17 @@ const FormikProps = () => {
                   First Name
                 </label>
                 <div className='input-group mb-3'>
-                  <input
+                  <Field
                     type='text'
-                    id='firstName'
+                    name='firstName'
                     className={`form-control rounded ${
                       formik.touched.firstName &&
                       formik.errors.firstName &&
                       'is-invalid'
                     }`}
-                    {...formik.getFieldProps('firstName')}
                   />
                   <div className='invalid-feedback'>
-                    {formik.touched.firstName && formik.errors.firstName}
+                    <ErrorMessage name='firstName' />
                   </div>
                 </div>
               </div>
@@ -54,7 +53,7 @@ const FormikProps = () => {
                   Last Name
                 </label>
                 <div className='input-group mb-3 '>
-                  <input
+                  <Field
                     type='text'
                     id='lastName'
                     className={`form-control rounded ${
@@ -62,10 +61,10 @@ const FormikProps = () => {
                       formik.errors.lastName &&
                       'is-invalid'
                     }`}
-                    {...formik.getFieldProps('lastName')}
+                    name='lastName'
                   />
                   <div className='invalid-feedback'>
-                    {formik.touched.lastName && formik.errors.lastName}
+                    <ErrorMessage name='lastName' />
                   </div>
                 </div>
               </div>
@@ -74,23 +73,20 @@ const FormikProps = () => {
                   email
                 </label>
                 <div className='input-group mb-3'>
-                  <input
+                  <Field
                     type='text'
-                    id='email'
+                    name='email'
                     className={`form-control rounded ${
-                      formik.touched.email &&
-                      formik.errors.email &&
-                      'is-invalid'
+                      formik.touched.email && 'is-invalid'
                     }`}
-                    {...formik.getFieldProps('email')}
                   />
                   <div className='invalid-feedback'>
-                    {formik.touched.email && formik.errors.email}
+                    <ErrorMessage name='email' />
                   </div>
                 </div>
               </div>
               <div>
-                <button type='submit' className='btn btn-primary my-3'>
+                <button type='submit' className='btn btn-primary my-2'>
                   submit
                 </button>
               </div>
@@ -102,4 +98,4 @@ const FormikProps = () => {
   );
 };
 
-export default FormikProps;
+export default FieldFormik;

@@ -5,10 +5,11 @@ const CountOnclick = () => {
   const clickIncrement = (e) => {
     const numId = Number(e.target.dataset.id) * 2;
     const numArr = [];
-    for (let i = 1; i <= numId; i++) {
+    const start = count[count.length - 1] + 1;
+    for (let i = start; i <= numId; i++) {
       numArr.push(i);
     }
-    setCount([...numArr]);
+    setCount([...count, ...numArr]);
   };
   return (
     <div>

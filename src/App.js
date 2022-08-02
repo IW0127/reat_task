@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import img from './assets/images/Ikbal 3.png';
 import CountLoop from './components/count/CountLoop';
+import FieldFormik from './components/formik/FieldFormik';
 import FormikProps from './components/formik/FormikProps';
 import YupFormik from './components/formik/YupFormik';
 import GstCalculator from './components/gst/GstCalculator';
@@ -32,8 +33,9 @@ function App() {
           <Route path='todoList' element={<TodoList />} />
           <Route path='yup' element={<YupFormik />} />
           <Route path='formik-props' element={<FormikProps />} />
-          <Route path='GST/*' element={<GstCalculator />} />
+          <Route path='formik-field' element={<FieldFormik />} />
           <Route path='click-number-increment' element={<CountOnclick />} />
+          {/* <Route path='GST/*' element={<GstCalculator />} /> */}
           <Route path='*' element={<Navigate to='/' replace />} />
         </Route>
       </Route>
