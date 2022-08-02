@@ -8,7 +8,9 @@ const SideBar = () => {
     { title: 'View more', to: '/view-more' },
     { title: 'Count', to: '/count' },
     { title: 'Todo', to: '/todoList' },
-    { title: 'Yup Lib', to: '/yup' },
+    { title: 'Formik simple', to: '/yup' },
+    { title: 'Formik props', to: '/formik-props' },
+    { title: 'Click Number Increment', to: 'click-number-increment' },
     // { title: 'GST calculator', to: 'GST' },
   ];
   return (

@@ -82,6 +82,7 @@ const ViewMore = () => {
           type='button'
           aria-expanded='false'
           onClick={decrement}
+          disabled={search === 0}
         >
           <i className='fa-solid fa-minus'></i>
         </button>

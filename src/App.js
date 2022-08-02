@@ -2,11 +2,13 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import img from './assets/images/Ikbal 3.png';
 import CountLoop from './components/count/CountLoop';
+import FormikProps from './components/formik/FormikProps';
+import YupFormik from './components/formik/YupFormik';
 import GstCalculator from './components/gst/GstCalculator';
 import Movie from './components/movie/Movie';
+import CountOnclick from './components/numberIncrement/CountOnclick';
 import TodoList from './components/todo/TodoList';
 import ViewMore from './components/view_more/ViewMore';
-import YupFormik from './components/yupLib/YupFormik';
 import NaveBar from './NaveBar';
 import SideBar from './SideBar';
 
@@ -29,7 +31,9 @@ function App() {
           <Route path='count' element={<CountLoop />} />
           <Route path='todoList' element={<TodoList />} />
           <Route path='yup' element={<YupFormik />} />
+          <Route path='formik-props' element={<FormikProps />} />
           <Route path='GST/*' element={<GstCalculator />} />
+          <Route path='click-number-increment' element={<CountOnclick />} />
           <Route path='*' element={<Navigate to='/' replace />} />
         </Route>
       </Route>
