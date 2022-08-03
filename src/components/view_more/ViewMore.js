@@ -1,9 +1,9 @@
-import React, { memo, useMemo, useState } from 'react';
+import React, { memo, useCallback, useMemo, useState } from 'react';
 import ViewMoreBox from './ViewMoreBox';
 
 const ViewMore = () => {
   // view more values
-  const viewMoreData = [1, 3, 5, 6, 8, 10, 12, 15, 16, 18, 20, 22, 24, 26];
+  let viewMoreData = [1, 3, 4, 6, 8, 10, 2, 4, 7, 8, 10, 1, 2, 3];
 
   /* count view button */
   const [viewCount, setViewCount] = useState({});
@@ -14,19 +14,30 @@ const ViewMore = () => {
   /* number onclick */
   const [viewNumber, setViewNumber] = useState({});
 
+  /* unique value */
+  const unique = (value, index, array) => {
+    return array.indexOf(value) === index;
+  };
+  viewMoreData = viewMoreData.filter(unique);
+
   /* split array */
   const partViewMore = () => {
     const chunkSize = Math.floor(viewMoreData.length / 2);
     const arr = [];
+
+    const compare = (a, b) => a - b;
+    viewMoreData.sort(compare);
     const groups = viewMoreData
-      .map((e, i) => {
+      .map((_, i) => {
         return (
           i % chunkSize === 0 &&
           arr.push(0) &&
           viewMoreData.slice(i, i + chunkSize)
         );
       })
-      .filter((e) => e);
+      .filter((e) => {
+        return e;
+      });
     // setViewCount({ ...arr });
     return groups;
   };
@@ -74,6 +85,23 @@ const ViewMore = () => {
     searchValue ? setSearch(searchValue) : setSearch(0);
   };
 
+  const ViewMoreBoxImport = useCallback(
+    () =>
+      partViewMore().map((num, key) => (
+        <ViewMoreBox
+          key={key}
+          num={num}
+          numId={key}
+          viewCount={viewCount}
+          search={search}
+          onClickViewMore={onClickViewMore}
+          clickNumber={clickNumber}
+          viewNumber={viewNumber}
+        />
+      )),
+    [viewCount]
+  );
+
   return (
     <div className='container text-center align-items-center d-flex justify-content-center my-3 flex-column'>
       <div className='input-group' style={{ width: '15%' }}>
@@ -102,18 +130,7 @@ const ViewMore = () => {
           <i className='fa-solid fa-plus'></i>
         </button>
       </div>
-      {partViewMore().map((num, key) => (
-        <ViewMoreBox
-          key={key}
-          num={num}
-          numId={key}
-          viewCount={viewCount}
-          search={search}
-          onClickViewMore={onClickViewMore}
-          clickNumber={clickNumber}
-          viewNumber={viewNumber}
-        />
-      ))}
+      {ViewMoreBoxImport()}
     </div>
   );
 };
