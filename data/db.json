@@ -2,12 +2,12 @@
   "Ticket": [
     {
       "id": 1,
-      "time": 5,
-      "error": 4
+      "time": 125,
+      "error": 2
     },
     {
       "id": 2,
-      "time": 10,
+      "time": 130,
       "error": 4
     },
     {
