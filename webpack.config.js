@@ -6,17 +6,17 @@ const { HotModuleReplacementPlugin } = require('webpack');
 
 const mode =
   process.env.NODE_ENV == 'production' ? 'production' : 'development';
-
+console.log(mode);
 module.exports = {
   entry: './src/index.js',
   mode: mode,
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'js/bundle.js',
     clean: true,
   },
   devServer: {
-    static: path.join(__dirname, '../dist'),
+    static: path.join(__dirname, 'dist'),
     port: 3000,
     compress: true,
     hot: true,
