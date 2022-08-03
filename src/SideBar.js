@@ -17,7 +17,10 @@ const SideBar = () => {
   return (
     <>
       <div className='row m-3'>
-        <div className='col-2 p-0'>
+        <div
+          className='col-2 p-0'
+          style={{ height: '90.3vh', overflow: 'auto' }}
+        >
           <div
             className='list-group list-group-light'
             id='list-tab'
@@ -37,7 +40,7 @@ const SideBar = () => {
             ))}
           </div>
         </div>
-        <div className='col-10'>
+        <div className='col-10' style={{ height: '90.3vh', overflow: 'auto' }}>
           <Outlet />
         </div>
       </div>
