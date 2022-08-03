@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <ul
-        className='nav nav-tabs nav-fill mb-3'
+        className='nav nav-tabs nav-fill mb-3 position-sticky top-0 bg-light'
         id='ex-with-icons'
         role='tablist'
       >
