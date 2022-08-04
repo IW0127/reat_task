@@ -11,6 +11,7 @@ const SideBar = () => {
     { title: 'Formik simple', to: '/yup' },
     { title: 'Formik props', to: '/formik-props' },
     { title: 'Formik Field component', to: '/formik-field' },
+    { title: 'Formik custom', to: '/formik-custom' },
     { title: 'Click Number Increment', to: 'click-number-increment' },
     // { title: 'GST calculator', to: 'GST' },
   ];
