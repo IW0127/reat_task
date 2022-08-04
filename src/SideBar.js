@@ -13,6 +13,7 @@ const SideBar = () => {
     { title: 'Formik Field component', to: '/formik-field' },
     { title: 'Formik custom', to: '/formik-custom' },
     { title: 'Click Number Increment', to: 'click-number-increment' },
+    { title: 'listing of users', to: 'user-list' },
     // { title: 'GST calculator', to: 'GST' },
   ];
   return (
