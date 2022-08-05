@@ -21,7 +21,16 @@ const NaveBar = () => {
 
             <div className='d-flex align-items-center'>
               <Link className='btn btn-link px-3 me-2 ' to='/'>
-                Home
+                Tasks
+              </Link>
+              <Link className='btn btn-link px-3 me-2 ' to='/all-react'>
+                All React
+              </Link>
+              <Link className='btn btn-link px-3 me-2 ' to='/redux'>
+                Redux
+              </Link>
+              <Link className='btn btn-link px-3 me-2 ' to='/shopping'>
+                Shopping
               </Link>
             </div>
           </div>

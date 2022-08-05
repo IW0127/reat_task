@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import AllReact from './allreact/AllReact';
 import img from './assets/images/Ikbal 3.png';
 import CountLoop from './components/count/CountLoop';
 import FormikUseField from './components/formik/fieldCustom/FormikUseField';
@@ -13,12 +14,18 @@ import TodoList from './components/todo/TodoList';
 import UserList from './components/userList/UserList';
 import ViewMore from './components/view_more/ViewMore';
 import NaveBar from './NaveBar';
+import Redux from './Redux/Redux';
+import Shopping from './shopping-cart/Shopping';
 import SideBar from './SideBar';
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<NaveBar />}>
+        <Route path='/all-react/*' element={<AllReact />} />
+        <Route path='/redux/*' element={<Redux />} />
+        <Route path='/shopping/*' element={<Shopping />} />
+
         <Route path='/' element={<SideBar />}>
           <Route
             index
@@ -41,7 +48,7 @@ function App() {
           <Route path='user-list' element={<UserList />} />
 
           {/* <Route path='GST/*' element={<GstCalculator />} /> */}
-          <Route path='*' element={<Navigate to='/' replace />} />
+          {/* <Route path='*' element={<Navigate to='/' replace />} /> */}
         </Route>
       </Route>
     </Routes>
