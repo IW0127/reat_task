@@ -29,7 +29,7 @@ module.exports = {
     },
     extensions: ['*', '.js', '.jsx'],
   },
-  devtool: 'interest-cohort',
+  devtool: false,
   stats: {
     colors: true,
     modules: true,
