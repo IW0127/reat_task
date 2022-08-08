@@ -7,6 +7,7 @@ const Timer = () => {
   const count = () => {
     dispatch(startTimer());
   };
+
   useEffect(() => {
     const countTimer = setInterval(count, 1000);
     return () => {

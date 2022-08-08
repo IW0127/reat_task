@@ -14,10 +14,12 @@ export const fetchTimer = createAsyncThunk('timer/fetchTimer', async () => {
 });
 
 const initialState = {
-  day: '00',
-  hours: '00',
-  minutes: '00',
-  seconds: '00',
+  timeSecond: {
+    day: '00',
+    hours: '00',
+    minutes: '00',
+    seconds: '00',
+  },
 };
 
 const timerSlice = createSlice({
@@ -51,10 +53,7 @@ const timerSlice = createSlice({
       if (minutes >= 0 && minutes < 10) minutes = '0' + minutes;
       if (seconds >= 0 && seconds < 10) seconds = '0' + seconds;
 
-      state.day = day;
-      state.hours = hours;
-      state.minutes = minutes;
-      state.seconds = seconds;
+      state.timeSecond = { day, hours, minutes, seconds };
     },
   },
   extraReducers(builder) {
@@ -75,15 +74,16 @@ const timerSlice = createSlice({
         hours * hourSeconds -
         minutes * minuteSeconds;
 
-      state.day = day;
+      /* state.day = day;
       state.hours = hours;
       state.minutes = minutes;
-      state.seconds = seconds;
+      state.seconds = seconds; */
+      state.timeSecond = { day, hours, minutes, seconds };
     });
   },
 });
 
-export const selectTimer = (state) => state.timer;
+export const selectTimer = (state) => state.timer.timeSecond;
 
 export const { startTimer } = timerSlice.actions;
 
