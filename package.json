@@ -10,7 +10,7 @@
     "watch": "webpack --watch",
     "start": "webpack serve",
     "serve": "json-server --watch ./data/db.json --port 3500",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:dev",
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
@@ -52,6 +52,7 @@
     "react-rating-stars-component": "^2.2.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
+    "redux-thunk": "^2.4.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

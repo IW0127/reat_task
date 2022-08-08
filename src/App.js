@@ -10,6 +10,7 @@ import YupFormik from './components/formik/YupFormik';
 import GstCalculator from './components/gst/GstCalculator';
 import Movie from './components/movie/Movie';
 import CountOnclick from './components/numberIncrement/CountOnclick';
+import ShopViewMore from './components/shopping/ShopViewMore';
 import TodoList from './components/todo/TodoList';
 import UserList from './components/userList/UserList';
 import ViewMore from './components/view_more/ViewMore';
@@ -46,9 +47,10 @@ function App() {
           <Route path='formik-custom' element={<FormikUseField />} />
           <Route path='click-number-increment' element={<CountOnclick />} />
           <Route path='user-list' element={<UserList />} />
+          <Route path='shopping-time-view_more' element={<ShopViewMore />} />
 
           {/* <Route path='GST/*' element={<GstCalculator />} /> */}
-          {/* <Route path='*' element={<Navigate to='/' replace />} /> */}
+          <Route path='*' element={<Navigate to='/' replace />} />
         </Route>
       </Route>
     </Routes>

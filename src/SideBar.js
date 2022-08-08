@@ -14,6 +14,7 @@ const SideBar = () => {
     { title: 'Formik custom', to: '/formik-custom' },
     { title: 'Click Number Increment', to: 'click-number-increment' },
     { title: 'listing of users', to: 'user-list' },
+    { title: 'Shopping', to: 'shopping-time-view_more' },
     // { title: 'GST calculator', to: 'GST' },
   ];
   return (
