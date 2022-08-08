@@ -1,0 +1,1 @@
+Header set Permissions-Policy "geolocation=self"
