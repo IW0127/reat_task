@@ -1,1 +1,1 @@
-Header set Permissions-Policy "geolocation=self"
+Header always set Permissions-Policy: interest-cohort=()
