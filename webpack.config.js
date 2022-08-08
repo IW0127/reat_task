@@ -29,7 +29,7 @@ module.exports = {
     },
     extensions: ['*', '.js', '.jsx'],
   },
-  devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   stats: {
     colors: true,
     modules: true,
