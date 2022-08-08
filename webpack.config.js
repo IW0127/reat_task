@@ -6,7 +6,7 @@ const { HotModuleReplacementPlugin } = require('webpack');
 
 const mode =
   process.env.NODE_ENV == 'production' ? 'production' : 'development';
-console.log(mode);
+console.log(mode, __dirname);
 module.exports = {
   entry: './src/index.js',
   mode: mode,
@@ -63,11 +63,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
-      favicon: 'public/img/logo.png',
+      inject: true,
+      template: path.resolve(__dirname + '/public', 'index.html'),
+      // filename: 'html.html',
+      favicon: path.resolve(__dirname + '/public', 'favicon.png'),
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].css',
+      filename: 'style/[name].css',
     }),
     new HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
