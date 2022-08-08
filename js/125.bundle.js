@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_webpack_project=self.webpackChunkmy_webpack_project||[]).push([[125],{36125:function(e,n,t){t.r(n);var r=t(67294);n.default=function(){function e(){return Math.floor(100*Math.random())}return r.createElement("div",null,r.createElement("h1",null,"This is Math random function using ",r.createElement(e,null)))}}}]);
