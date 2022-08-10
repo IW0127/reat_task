@@ -2,8 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import Container from './container/Container';
-import SidebarAdd from './sidebar/SidebarAdd';
-import { fetchTimer, selectByTimer } from './slices/timer';
+import Sidebar from './sidebar/Sidebar';
+import { fetchTimer } from './slices/timer';
 
 store.dispatch(fetchTimer());
 const ShopViewMore = () => {
@@ -11,7 +11,7 @@ const ShopViewMore = () => {
     <Provider store={store}>
       <div className='row h-100'>
         <Container />
-        <SidebarAdd />
+        <Sidebar />
       </div>
     </Provider>
   );

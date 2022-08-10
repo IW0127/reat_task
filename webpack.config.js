@@ -64,9 +64,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname + '/public', 'index.html'),
-      // filename: 'html.html',
-      favicon: path.resolve(__dirname + '/public', 'favicon.png'),
+      template: 'public/index.html',
+      favicon: 'public/favicon.png',
+      // favicon: path.resolve(__dirname + '/public', 'favicon.png'),
     }),
     new MiniCssExtractPlugin({
       filename: 'style/[name].css',

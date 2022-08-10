@@ -1,6 +1,6 @@
 import React from 'react';
 import Timer from './Timer';
-import Product from './Product';
+import Product from './product/Product';
 
 const Container = () => {
   return (

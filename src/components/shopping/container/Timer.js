@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectTimer, startTimer } from '../slices/timer';
 const Timer = () => {
   const time = useSelector(selectTimer);
+  const { Days, Hours, Minutes, Seconds } = time;
   const dispatch = useDispatch();
   const count = () => {
     dispatch(startTimer());
@@ -10,10 +11,17 @@ const Timer = () => {
 
   useEffect(() => {
     const countTimer = setInterval(count, 1000);
+
+    Days === '00' &&
+      Hours === '00' &&
+      Minutes === '00' &&
+      Seconds === '00' &&
+      clearInterval(countTimer);
+
     return () => {
       clearInterval(countTimer);
     };
-  }, []);
+  }, [time]);
 
   const content = Object.entries(time).map(([key, value]) => (
     <div

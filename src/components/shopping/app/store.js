@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import thunk from 'redux-thunk';
 import timerSlice from '../slices/timer';
-
+import productSlice from '../slices/product';
 export const store = configureStore({
   reducer: {
     timer: timerSlice,
+    product: productSlice,
   },
 });
