@@ -1931,7 +1931,7 @@
   "Timer": [
     {
       "id": 1,
-      "seconds": 0
+      "seconds": 600
     }
   ]
 }

@@ -1,8 +1,15 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { decrementTotal, incrementTotal } from '../../slices/product';
 const ProductList = ({
-  prod: { productImg, productName, comperePrice, productPrice },
+  prod: { productImg, productName, comperePrice, productPrice, id },
 }) => {
+  const dispatch = useDispatch();
+  const handelChange = (e) => {
+    const check = e.target.checked;
+    const itemId = Number(e.target.dataset.id);
+    check ? dispatch(incrementTotal(itemId)) : dispatch(decrementTotal(itemId));
+  };
   return (
     <div className='my-2'>
       <div
@@ -23,13 +30,14 @@ const ProductList = ({
               <p className='card-text my-2'>
                 Price : ₹ {productPrice} (<del>₹{comperePrice}</del>)
               </p>
-              <p className='card-text'>Total : ₹ 296.00 </p>
             </div>
             <div className='position-absolute top-0 end-0 mt-1 '>
               <input
                 className='form-check-input'
                 type='checkbox'
                 id='checkboxNoLabel'
+                data-id={id}
+                onChange={handelChange}
               />
             </div>
           </div>
