@@ -19,7 +19,6 @@ const Product = () => {
     () => allProduct.map((prod, key) => <ProductList key={key} prod={prod} />),
     [allProduct]
   );
-  console.log(allProduct);
   return (
     <div className='d-flex flex-column align-items-center my-5'>
       {allProduct.length > 0 && (

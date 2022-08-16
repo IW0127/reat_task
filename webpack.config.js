@@ -36,6 +36,9 @@ module.exports = {
     reasons: true,
     errorDetails: true,
   },
+  performance: {
+    hints: false,
+  },
   module: {
     rules: [
       {

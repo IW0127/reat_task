@@ -6,4 +6,5 @@ export const store = configureStore({
     timer: timerSlice,
     product: productSlice,
   },
+  devTools: process.env.NODE_ENV !== 'production',
 });
