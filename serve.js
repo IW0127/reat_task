@@ -9,3 +9,4 @@ app.get('/', function (req, res) {
 });
 console.log('hello');
 app.listen(3000 || 5000);
+// "serve": "json-server --watch ./data/db.json --port 3500",
