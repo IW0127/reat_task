@@ -11,7 +11,8 @@
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "predeploy": "npm run build:dev",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "dev": "\"npm run serve \"npm run start\""
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",

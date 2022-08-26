@@ -4,6 +4,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
 
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router(path.join(__dirname, 'data/db.json'));
+const middlewares = jsonServer.defaults();
+
+server.use(middlewares);
+server.use(router);
+server.listen(3500, () => {
+  console.log('http://localhost:3500/');
+});
+
 const mode =
   process.env.NODE_ENV == 'production' ? 'production' : 'development';
 console.log(mode, __dirname);
