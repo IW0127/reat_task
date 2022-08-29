@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+console.log(`${process.env.DB_DATA}`);
 root.render(
   <React.StrictMode>
     <BrowserRouter>

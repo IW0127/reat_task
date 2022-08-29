@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from 'axios';
 
-const TIMER_URL = 'http://localhost:3500/Timer';
+const TIMER_URL = `${process.env.DB_DATA}/Timer`;
 
 export const fetchTimer = createAsyncThunk('timer/fetchTimer', async () => {
   try {
