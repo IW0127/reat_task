@@ -29,7 +29,7 @@ module.exports = {
   },
   devServer: {
     static: path.join(__dirname, 'dist'),
-    port: 4000,
+    port: 3001,
     compress: true,
     open: true,
     historyApiFallback: true,
